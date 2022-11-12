@@ -16,7 +16,7 @@
         </div><br />
     @endif
     <h2>Danh sách nhân sự</h2>
-    <table class="table table-bordered">
+    <table class="table table-bordered" id="edit_datable_1" data-update-url="{{route('human.update')}}">
         <thead>
         <tr>
             <th>@sortablelink('id')</th>
@@ -33,19 +33,24 @@
 
         @foreach($data as $info)
             <tr>
-                <td>{{$info->id}}</td>
-                <td>{{$info->code}}</td>
-                <td>{{$info->surName}}</td>
-                <td>{{$info->phone}}</td>
-                <td>{{$info->emailAccount}}</td>
-                <td>{{$info->idDepartment}}</td>
-                <td>{{$info->idPosition}}</td>
-                <td>{{$info->idTitle}}</td>
+                <td data-id="{{$info->id}}" data-name="id">{{$info->id}}</td>
+                <td data-id="{{$info->id}}" data-name="code">{{$info->code}}</td>
+                <td data-id="{{$info->id}}" data-name="surName">{{$info->surName}}</td>
+                <td data-id="{{$info->id}}" data-name="phone">{{$info->phone}}</td>
+                <td data-id="{{$info->id}}" data-name="emailAccount">{{$info->emailAccount}}</td>
+                <td data-id="{{$info->id}}" data-name="idDepartment">{{$info->idDepartment}}</td>
+                <td data-id="{{$info->id}}" data-name="idPosition">{{$info->idPosition}}</td>
+                <td data-id="{{$info->id}}" data-name="idTitle">{{$info->idTitle}}</td>
             </tr>
         @endforeach
         </tbody>
     </table>
     {!! $data->appends(\Request::except('page'))->render() !!}
 </div>
+<!-- jQuery -->
+<script src="{{asset('js/edit-table/jquery.min.js')}}"></script>
+
+<script src="{{asset('js/edit-table/jquery.slimscroll.js')}}"></script>
+<script src="{{asset('js/edit-table/editable-table-data.js')}}"></script>
 </body>
 </html>

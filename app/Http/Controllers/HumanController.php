@@ -62,15 +62,17 @@ class HumanController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $human = Human::find($request->id);
+        if (!$human) {
+            return response()->json('failed');
+        }
+
+        return response()->json($human->update($request->all()));
     }
 
     /**
