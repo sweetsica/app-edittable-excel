@@ -5,6 +5,7 @@ use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\HumanController;
 use App\Http\Controllers\CustomerDMSController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\TaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,5 +26,11 @@ Route::post('/nhap-luu', [ExcelController::class,'setImport'])->name('excel.impo
 Route::post('/nhap-luu-dms-buon', [ExcelController::class,'setImportDMS'])->name('excel.import.dms.buon');
 Route::post('/nhap-luu-dms-le', [ExcelController::class,'setImportDMS'])->name('excel.import.dms.le');
 
+
+
 Route::get('/human-list',[HumanController::class,'index'])->name('human.list');
 Route::get('/customer-dms-list',[CustomerDMSController::class,'index'])->name('customerdms.list');
+
+Route::get('/task-list',[TaskController::class,'index'])->name('task.list');
+Route::post('/task-add',[TaskController::class,'store'])->name('task.add');
+Route::get('/task-export',[TaskController::class,'export'])->name('task.export');
