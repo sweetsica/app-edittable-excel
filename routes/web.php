@@ -25,7 +25,7 @@ Route::get('/nhap', [ExcelController::class,'getImportView']);
 Route::post('/nhap-luu', [ExcelController::class,'setImport'])->name('excel.import');
 Route::post('/nhap-luu-dms-buon', [ExcelController::class,'setImportDMS'])->name('excel.import.dms.buon');
 Route::post('/nhap-luu-dms-le', [ExcelController::class,'setImportDMS'])->name('excel.import.dms.le');
-
+Route::post('/nhap-luu-nhiem-vu', [ExcelController::class,'setImportTask'])->name('excel.import.task');
 
 
 Route::get('/human-list',[HumanController::class,'index'])->name('human.list');
