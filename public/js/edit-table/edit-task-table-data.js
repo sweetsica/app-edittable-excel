@@ -19,7 +19,6 @@ $.fn.editableTableWidget = function (options) {
             editor = activeOptions.editor.css('position', 'absolute').hide().appendTo(element.parent()),
             active,
             showEditor = function (select) {
-                console.log(123);
                 /* Block open input here*/
                 if (select.target && select.target.getAttribute('data-name') === 'id') {
                     return true;
