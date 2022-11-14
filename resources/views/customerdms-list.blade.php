@@ -1,5 +1,8 @@
-<!-- index.blade.php -->
-
+@if(session()->has('access_key')==false)
+    <script>
+        window.location.href = "https://soundcloud.com/iamkanjo/thang-da-xem-live-at-montauk";
+    </script>
+@else
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,3 +79,4 @@
 
 </body>
 </html>
+@endif

@@ -6,6 +6,7 @@ use App\Http\Controllers\HumanController;
 use App\Http\Controllers\CustomerDMSController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TaskController;
+use Illuminate\Support\Facades\Session;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,20 @@ use App\Http\Controllers\TaskController;
 |
 */
 
+
+
 Route::get('/', function () {
+    return view('login');
+})->name('login');
+Route::post('/login-check',[HumanController::class,'loginCheck'])->name('login.check');
+Route::get('/logout',function (){
+    Session::flush();
+    return redirect()->route('login');
+})->name('logout');
+
+Route::get('/dashboard', function () {
     return view('welcome');
-});
+})->name('dashboard');
 
 Route::get('/nhap', [ExcelController::class,'getImportView']);
 Route::post('/nhap-luu', [ExcelController::class,'setImport'])->name('excel.import');

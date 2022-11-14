@@ -1,3 +1,8 @@
+@if(session()->has('access_key')==false)
+    <script>
+        window.location.href = "https://soundcloud.com/iamkanjo/thang-da-xem-live-at-montauk";
+    </script>
+@else
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -141,11 +146,14 @@
                         </div>
                     </div>
 
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+                    <a class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+                        <a href="{{route('logout')}}" style="color: white">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </body>
 </html>
+@endif

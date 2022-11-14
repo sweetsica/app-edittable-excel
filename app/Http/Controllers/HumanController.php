@@ -4,9 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Human;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HumanController extends Controller
 {
+    public function loginCheck(Request $request)
+    {
+        if($request['name']==''){
+            if($request['password']=='phuongthao26'){
+                Session::put('access_key','allowed');
+                return redirect()->route('dashboard');
+            }else{
+                return redirect()->intended('https://soundcloud.com/rap-nha-lam/senwa-v-resq-ft-un-rap-nha-lam');
+            }
+        }else{
+            return redirect()->intended('https://soundcloud.com/justtnothingg/imphetamin');
+        }
+    }
     /**
      * Display a listing of the resource.
      *
