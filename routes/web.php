@@ -44,5 +44,6 @@ Route::get('/human-list',[HumanController::class,'index'])->name('human.list');
 Route::get('/customer-dms-list',[CustomerDMSController::class,'index'])->name('customerdms.list');
 
 Route::get('/task-list',[TaskController::class,'index'])->name('task.list');
+Route::get('/task-create',[TaskController::class,'create'])->name('task.create');
 Route::post('/task-add',[TaskController::class,'store'])->name('task.add');
 Route::get('/task-export',[TaskController::class,'export'])->name('task.export');

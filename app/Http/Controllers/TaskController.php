@@ -18,7 +18,7 @@ class TaskController extends Controller
      */
     public function index(Task $task)
     {
-        $data = $task->sortable()->paginate(50);;
+        $data = $task->sortable()->paginate(50);
         return view('task',compact('data'));
     }
 
@@ -27,9 +27,10 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Task $task)
     {
-        //
+        $data = $task->orderBy('id','desc')->sortable()->paginate(50);
+        return view('task',compact('data'));
     }
 
     /**
@@ -40,9 +41,8 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-
         Task::create($request->all());
-        return redirect()->back();
+        return redirect()->route('task.create');
     }
 
     /**
