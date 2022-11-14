@@ -58,9 +58,10 @@ $.fn.editableTableWidget = function (options) {
                 if (active.text() === text || editor.hasClass('error')) {
                     return true;
                 }
-
-                const apiUrl = $('#edit_task_datable').data('update-url').replace('http://', 'https://');
-                console.log(apiUrl);
+                //
+                // const apiUrl = $('#edit_task_datable').data('update-url').replace('http://', 'https://');
+                // console.log(apiUrl);
+                const apiUrl = $('#edit_datable_1').data('update-url');
 
                 let editorInput = $(`#edit_task_datable_input`);
                 const data = {
