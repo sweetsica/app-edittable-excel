@@ -58,7 +58,7 @@ $.fn.editableTableWidget = function (options) {
                 if (active.text() === text || editor.hasClass('error')) {
                     return true;
                 }
-                const apiUrl = $('#edit_task_datable').data('update-url').replace('http', 'https');
+                const apiUrl = $('#edit_task_datable').data('update-url').replace('http://', 'https://');
                 console.log(apiUrl);
                 let editorInput = $(`#edit_task_datable_input`);
                 const data = {
