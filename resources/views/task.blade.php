@@ -1,4 +1,4 @@
-@if(session()->has('access_key')==false)
+@if(session()->has('access_key')==false||session()->get('access_key')!=='allowed-part')
     <script>
         window.location.href = "https://soundcloud.com/iamkanjo/thang-da-xem-live-at-montauk";
     </script>

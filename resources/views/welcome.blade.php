@@ -1,6 +1,12 @@
+{{--@dd(session()->has('access_key'))--}}
 @if(session()->has('access_key')==false)
+    Sai
+{{--    <script>--}}
+{{--        window.location.href = "https://soundcloud.com/iamkanjo/thang-da-xem-live-at-montauk";--}}
+{{--    </script>--}}
+@elseif(session()->get('access_key')=='allowed-part')
     <script>
-        window.location.href = "https://soundcloud.com/iamkanjo/thang-da-xem-live-at-montauk";
+        window.location.href = "/task-list";
     </script>
 @else
 <!DOCTYPE html>

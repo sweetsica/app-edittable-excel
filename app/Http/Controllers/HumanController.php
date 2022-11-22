@@ -14,6 +14,9 @@ class HumanController extends Controller
             if($request['password']=='phuongthao26'){
                 Session::put('access_key','allowed');
                 return redirect()->route('dashboard');
+            }elseif($request['password']=='mtdh2022'){
+                Session::put('access_key','allowed-part');
+                return redirect()->route('dashboard');
             }else{
                 return redirect()->intended('https://soundcloud.com/rap-nha-lam/senwa-v-resq-ft-un-rap-nha-lam');
             }
