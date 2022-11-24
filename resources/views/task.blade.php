@@ -1,8 +1,4 @@
-@if(session()->has('access_key')==false||session()->get('access_key')!=='allowed-part')
-    <script>
-        window.location.href = "https://soundcloud.com/iamkanjo/thang-da-xem-live-at-montauk";
-    </script>
-@else
+@if(session()->get('access_key')=='allowed'||session()->get('access_key')=='allowed-part')
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +7,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-    <br />
-    <form method="post" action="{{route('task.add')}}">
+<div style="text-align: center; margin-top:1%">
+    <form method="post" action="{{route('task.add')}}" style="width: 70%; margin:0% auto">
         @csrf
         <table>
             <tr>
@@ -52,7 +47,14 @@
         </table>
 
     </form>
-    <h2><a href="{{route('task.export')}}">Danh sách nhiệm vụ</a></h2>
+</div>
+<div class="container">
+    <br />
+
+    <div style="width:100%; float:left; display: flex">
+        <h2 style="width:70%"><a href="{{route('task.export')}}">Danh sách nhiệm vụ</a></h2>
+        <h3 style="width:30%; float:right"><a href="{{route('logout')}}">Đăng xuất</a></h3>
+    </div>
     <table class="table table-bordered" id="edit_task_datable" data-update-url="{{route('task.update')}}">
         <thead>
         <tr>
@@ -91,4 +93,8 @@
 <script src="{{asset('js/edit-table/edit-task-table-data.js')}}"></script>
 </body>
 </html>
+@else
+    <script>
+        window.location.href = "https://soundcloud.com/iamkanjo/thang-da-xem-live-at-montauk";
+    </script>
 @endif
