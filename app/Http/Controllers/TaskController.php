@@ -101,4 +101,10 @@ class TaskController extends Controller
         $QrsExport = new TasksExport();
         return Excel::download($QrsExport, $fileName);
     }
+
+    public function reset()
+    {
+        Task::query()->truncate();
+        return view('welcome');
+    }
 }
