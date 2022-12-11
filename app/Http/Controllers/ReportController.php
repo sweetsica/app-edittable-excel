@@ -2,24 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\QrsExport;
-use App\Exports\TasksExport;
-use App\Models\Task;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 
-class TaskController extends Controller
+class ReportController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Task $task)
+    public function index()
     {
-        $data = $task->sortable()->paginate(50);
-        return view('task',compact('data'));
+        return view('report');
     }
 
     /**
@@ -27,10 +21,9 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Task $task)
+    public function create()
     {
-        $data = $task->orderBy('id','desc')->sortable()->paginate(50);
-        return view('task',compact('data'));
+        //
     }
 
     /**
@@ -41,8 +34,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        Task::create($request->all());
-        return redirect()->route('task.create');
+        //
     }
 
     /**
@@ -74,14 +66,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $task = Task::find($request->id);
-        if (!$task) {
-            return response()->json('failed');
-        }
-
-        return response()->json($task->update($request->all()));
+        //
     }
 
     /**
@@ -93,18 +80,5 @@ class TaskController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function export()
-    {
-        $fileName = 'Danh mục và định mức.xlsx';
-        $QrsExport = new TasksExport();
-        return Excel::download($QrsExport, $fileName);
-    }
-
-    public function reset()
-    {
-        Task::query()->truncate();
-        return view('welcome');
     }
 }

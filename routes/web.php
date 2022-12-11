@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\HumanController;
 use App\Http\Controllers\CustomerDMSController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Session;
@@ -47,3 +48,8 @@ Route::get('/task-list',[TaskController::class,'index'])->name('task.list');
 Route::get('/task-create',[TaskController::class,'create'])->name('task.create');
 Route::post('/task-add',[TaskController::class,'store'])->name('task.add');
 Route::get('/task-export',[TaskController::class,'export'])->name('task.export');
+
+Route::get('/task-reset',[TaskController::class,'reset'])->name('task.reset');
+
+Route::get('/report',[ReportController::class,'index']);
+Route::get('/report/upload',[ReportController::class,'upload']);
