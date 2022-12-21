@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
+
 
 class ReportController extends Controller
 {
@@ -23,7 +28,7 @@ class ReportController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +39,13 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('files');
+        $name_file = $file->getClientOriginalName();
+        $date = Carbon::today()->format('d-m-Y');
+        $path = Storage::putFileAs("public/report/".$date,$request->file('files'),$name_file);
+        $link_file = URL::to('/').Storage::url('report/'.$date.'/'.$name_file);
+//        Session::flash('success','Tải file thành công!');
+        return redirect()->back()->with('success','Tải tệp thành công!');
     }
 
     /**
@@ -68,7 +79,7 @@ class ReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

@@ -8,6 +8,7 @@ use App\Http\Controllers\ReportController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +19,6 @@ use Illuminate\Support\Facades\Session;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 
 Route::get('/', function () {
     return view('login');
@@ -52,4 +51,5 @@ Route::get('/task-export',[TaskController::class,'export'])->name('task.export')
 Route::get('/task-reset',[TaskController::class,'reset'])->name('task.reset');
 
 Route::get('/report',[ReportController::class,'index']);
-Route::get('/report/upload',[ReportController::class,'upload']);
+Route::get('/report/upload',[ReportController::class,'create']);
+Route::post('/report/upload/send',[ReportController::class,'store'])->name('report.upload');
