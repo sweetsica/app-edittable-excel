@@ -24,7 +24,9 @@ class ReportController extends Controller
         $file = $request->file('files');
         $name_file = $file->getClientOriginalName();
         $date = Carbon::today()->format('d-m-Y');
-        $path = Storage::putFileAs("public/report/".'09-09-09',$request->file('files'),$name_file);
+        $path = Storage::putFileAs("public/report/".'09-09-09-09',$request->file('files'),$name_file);
+        Storage::makeDirectory($path);
+        Storage::setVisibility($path, 'public');
 //        $link_file = URL::to('/').Storage::url('report/'.$date.'/'.$name_file);
         Storage::setVisibility($path, 'public');// Đặt quyền truy cập cho file trong hệ thống tệp tin Laravel
         $link_file = Storage::url($path); // Lấy đường dẫn truy cập tới file
