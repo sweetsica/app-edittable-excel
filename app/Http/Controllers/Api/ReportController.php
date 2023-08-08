@@ -30,6 +30,8 @@ class ReportController extends Controller
 //        $link_file = URL::to('/').Storage::url('report/'.$date.'/'.$name_file);
         Storage::setVisibility($path, 'public');// Đặt quyền truy cập cho file trong hệ thống tệp tin Laravel
         $link_file = Storage::url($path); // Lấy đường dẫn truy cập tới file
+        shell_exec('chmod -R 775 storage/app/public/report');
+
         return response()->json(['path'=>$path,'downloadLink'=>$link_file]);
     }
 
