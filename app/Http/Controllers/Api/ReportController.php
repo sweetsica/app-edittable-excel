@@ -31,9 +31,11 @@ class ReportController extends Controller
         } else {
             // handle the error
         }
+        exec('pwd', $output, $return_var);
+
 //        shell_exec('chmod -R 775 storage/app/public/report');
 
-        return response()->json(['path'=>$path,'downloadLink'=>$link_file]);
+        return response()->json(['path'=>$path,'downloadLink'=>$link_file, 'output' => $output]);
     }
 
     public function getFile(Request $request)
