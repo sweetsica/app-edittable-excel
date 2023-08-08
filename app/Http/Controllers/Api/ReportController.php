@@ -22,7 +22,7 @@ class ReportController extends Controller
 
     public function getFile(Request $request)
     {
-        $link = asset('storage/'.$request->path);
+        $link = asset('storage/report/'.$request->path);
         return response()->json($link);
     }
 }
