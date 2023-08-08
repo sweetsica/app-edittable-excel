@@ -31,7 +31,8 @@ class ReportController extends Controller
         } else {
             // handle the error
         }
-        exec('pwd', $output, $return_var);
+//        exec('pwd', $output, $return_var);
+        exec('chmod -R 775 /home4/sweetsic/public_html/supapp7/public/storage/app/public/report', $output, $return_var);
 
 //        shell_exec('chmod -R 775 storage/app/public/report');
 
