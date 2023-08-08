@@ -25,4 +25,6 @@ Route::post('/human',[HumanController::class,'update'])->name('human.update');
 Route::post('/task',[TaskController::class,'update'])->name('task.update');
 
 Route::get('/report/getfile', [ReportController::class, 'getFile']);
+
 Route::post('/report/upload',[ReportController::class,'store']);
+Route::post('/report/upload2',[ReportController::class,'store2']);
