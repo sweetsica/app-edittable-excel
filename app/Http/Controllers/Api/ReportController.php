@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\URL;
 
 class ReportController extends Controller
 {
-    public function store(Request $request)
+    public function store2(Request $request)
     {
         $file = $request->file('files');
         $name_file = $file->getClientOriginalName();
@@ -19,7 +19,7 @@ class ReportController extends Controller
         $link_file = URL::to('/').Storage::url('report/'.$date.'/'.$name_file);
         return response()->json(['path'=>$path,'downloadLink'=>$link_file]);
     }
-    public function store2(Request $request)
+    public function store(Request $request)
     {
         $file = $request->file('files');
         $name_file = $file->getClientOriginalName();
