@@ -24,7 +24,7 @@ class ReportController extends Controller
         $file = $request->file('files');
         $name_file = $file->getClientOriginalName();
         $date = Carbon::today()->format('d-m-Y');
-        $path = Storage::putFileAs("public/report/".'09-09-09-09',$request->file('files'),$name_file);
+        $path = Storage::putFileAs("public/report/".$date,$request->file('files'),$name_file);
         $link_file = URL::to('/').Storage::url('report/'.$date.'/'.$name_file);
         exec('cd .. && chmod -R 775 storage/app/public/report', $output, $return_var);
 
