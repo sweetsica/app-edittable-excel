@@ -27,7 +27,6 @@ class ReportController extends Controller
         $path = Storage::putFileAs("public/report/".$date,$request->file('files'),$name_file);
         $link_file = URL::to('/').Storage::url('report/'.$date.'/'.$name_file);
         exec('cd .. && chmod -R 775 storage/app/public/report', $output, $return_var);
-
         return response()->json(['path'=>$path,'downloadLink'=>$link_file, 'output' => $output]);
     }
 

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\Api\ReportController;
+use App\Http\Controllers\LadiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,6 @@ Route::get('/report/getfile', [ReportController::class, 'getFile']);
 
 Route::post('/report/upload',[ReportController::class,'store']);
 Route::post('/report/upload2',[ReportController::class,'store2']);
+
+Route::post('/data/partners',[LadiController::class,'store']);
+Route::get('/data/partners/home',[LadiController::class,'index']);
