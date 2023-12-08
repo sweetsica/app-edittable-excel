@@ -6,7 +6,7 @@
 <body>
 <?php
     foreach ($data as $data){
-        var_dump(json($data,200, ['Content-type'=> 'application/json; charset=utf-8'], JSON_UNESCAPED_UNICODE));
+        var_dump(json_decode($data));
     }
 ?>
 </body>

@@ -10,7 +10,7 @@ class LadiController extends Controller
     public function store(Request $request)
     {
         Ladi::create(
-            ['data' => json_encode($request->all())]
+            ['data' => json_encode($request->all(),JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES)]
         );
         return response()->json('Thành công',200);
     }
