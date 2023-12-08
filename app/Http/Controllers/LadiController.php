@@ -17,7 +17,7 @@ class LadiController extends Controller
 
     public function index()
     {
-        $data = Ladi::all()->get();
+        $data = Ladi::all();
         return view ('listLadi',compact('data'));
     }
 }
