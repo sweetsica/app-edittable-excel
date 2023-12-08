@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class LadiController extends Controller
 {
-    public function getData(Request $request)
+    public function store(Request $request)
     {
         Ladi::create(
             ['data' => $request->all()]
