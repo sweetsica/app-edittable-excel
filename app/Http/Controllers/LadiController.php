@@ -9,6 +9,7 @@ class LadiController extends Controller
 {
     public function store(Request $request)
     {
+        dd($request);
         Ladi::create(
             ['data' => $request->all()]
         );
